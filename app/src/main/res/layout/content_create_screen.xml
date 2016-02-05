@@ -9,17 +9,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.codecaboose.piratetreasurehunt.PlayScreen"
-    tools:showIn="@layout/activity_play_screen">
+    tools:context="com.example.codecaboose.piratetreasurehunt.CreateScreen"
+    tools:showIn="@layout/activity_create_screen">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Play Screen"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
+        android:text="Create Screen"
+        android:id="@+id/textView"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="153dp" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

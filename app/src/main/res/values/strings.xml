@@ -8,4 +8,6 @@
     <string name="play_button">PLAY!</string>
     <string name="create_button">CREATE</string>
     <string name="settings_button">SETTINGS</string>
+    <string name="title_activity_create_screen">CreateScreen</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

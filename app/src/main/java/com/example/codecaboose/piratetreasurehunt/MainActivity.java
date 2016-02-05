@@ -20,19 +20,43 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button playButton = (Button)findViewById(R.id.button);
-        playButton.setOnClickListener(new PlayScreenClass());
+        Button playButton = (Button) findViewById(R.id.button);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_play = new Intent(MainActivity.this, PlayScreen.class);
+                startActivity(go_play);
+
+            }
+
+        });
+
+        Button createButton = (Button) findViewById(R.id.button2);
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_create = new Intent(MainActivity.this, CreateScreen.class);
+                startActivity(go_create);
+
+            }
+
+        });
+
+        Button settingsButton = (Button) findViewById(R.id.button3);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent go_set = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(go_set);
+
+            }
+
+        });
+
 
     }
 
-    public class PlayScreenClass implements View.OnClickListener {
 
-        @Override
-        public void onClick(View v) {
-            Intent goToNextActivity = new Intent(getApplicationContext(), PlayScreen.class);
-            startActivity(goToNextActivity);
-        }
-    }
 
 
     @Override

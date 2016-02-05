@@ -21,6 +21,14 @@
         <activity
             android:name=".PlayScreen"
             android:label="@string/title_activity_play_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateScreen"
+            android:label="@string/title_activity_create_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
