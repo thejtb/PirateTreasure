@@ -4,4 +4,8 @@
     <string name="I_should_be">committed</string>
     <string name="test">test2</string>
     <string name="title_activity_play_screen">PlayScreen</string>
+
+    <string name="play_button">PLAY!</string>
+    <string name="create_button">CREATE</string>
+    <string name="settings_button">SETTINGS</string>
 </resources>
