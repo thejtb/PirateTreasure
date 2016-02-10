@@ -10,12 +10,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.codecaboose.piratetreasurehunt.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main_screen">
 
     <Button
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:text="@string/play_button"
+        android:textSize="45dp"
+        android:typeface="serif"
         android:id="@+id/button"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
@@ -25,19 +27,23 @@
         android:layout_width="160dp"
         android:layout_height="80dp"
         android:text="@string/create_button"
+        android:textSize="30dp"
+        android:typeface="serif"
         android:id="@+id/button2"
-        android:layout_centerVertical="true"
+        android:onClick="go_create"
+        android:layout_above="@+id/button3"
         android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:onClick="go_create"/>
+        android:layout_alignStart="@+id/button3" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:text="@string/settings_button"
+        android:textSize="20dp"
+        android:typeface="serif"
         android:id="@+id/button3"
-        android:layout_below="@+id/button2"
+        android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button" />
 

@@ -19,11 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PlayScreen"
+            android:name=".PlayActivity"
             android:label="@string/title_activity_play_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateScreen"
+            android:name=".CreateActivity"
             android:label="@string/title_activity_create_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

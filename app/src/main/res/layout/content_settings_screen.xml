@@ -9,17 +9,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.codecaboose.piratetreasurehunt.SettingsActivity"
-    tools:showIn="@layout/activity_settings">
+    tools:context=".SettingsActivity"
+    tools:showIn="@layout/activity_settings_screen">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Settings Screen"
+        android:textSize="45dp"
         android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="131dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
