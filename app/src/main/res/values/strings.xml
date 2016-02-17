@@ -10,4 +10,12 @@
     <string name="settings_button">SETTINGS</string>
     <string name="title_activity_create_screen">CreateScreen</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="add_clue">Add Clues Here!</string>
+    <string name="add_button">Add</string>
+    <string name="enter_clue">Enter clues here</string>
+    <string name="floor_create">Switch on if your home has two floors!</string>
+    <string name="add_yard">Switch on if you want to include your yard in the hunt!</string>
+    <string name="five_clues">Select to create a fun five clue hunt!</string>
+    <string name="ten_clues">Select to create an exciting ten clue hunt!</string>
+    <string name="fifteen_clues">Select to create an epic fifteen clue hunt!</string>
 </resources>

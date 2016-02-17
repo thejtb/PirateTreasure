@@ -12,13 +12,34 @@
     tools:context=".PlayActivity"
     tools:showIn="@layout/activity_play_screen">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:text="Play screen contents"
+        android:textAlignment="center"
+        android:id="@+id/scrollList"
+        android:layout_alignParentBottom="true"
+        android:scrollbars="vertical"
+        android:maxLines="5"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Play Screen"
-        android:textSize="60dp"
-        android:id="@+id/textView3"
-        android:layout_centerVertical="true"
+        android:text="Decoder area"
+        android:textAlignment="center"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Map area"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/scrollList"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp" />
 </RelativeLayout>
