@@ -1,6 +1,12 @@
 package com.example.codecaboose.piratetreasurehunt;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PointF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.graphics.Bitmap;
@@ -20,11 +26,19 @@ public class DrawingView extends View
     //drawing and canvas paint
     private Paint drawPaint, canvasPaint;
     //initial color
-    private int paintColor = 0xFF660000;
+    private int paintColor = 0xFFAA66CC;
     //canvas
     private Canvas drawCanvas;
     //canvas bitmap
     private Bitmap canvasBitmap;
+
+    Bitmap clueMap;
+
+    public int clueFlag = 0;
+
+    private float xpos;
+    private float ypos;
+
     public DrawingView(Context context, AttributeSet attrs){
         super(context, attrs);
         setupDrawing();
@@ -54,35 +68,60 @@ public class DrawingView extends View
 
     }
 
+    public void setPicture (Bitmap bitmap) {
+        setBackgroundDrawable(new BitmapDrawable(bitmap));
+    }
+
+
+
     @Override
     protected void onDraw(Canvas canvas) {
         //draw view
-        canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
-        canvas.drawPath(drawPath, drawPaint);
+        /*if(clueFlag == 1) {
+            super.onDraw(canvas);
+            Resources res = getResources();
+            Paint p = new Paint();
+            p.setColor(Color.RED);
 
+            clueMap = BitmapFactory.decodeResource(res, R.drawable.new_pic);
+
+            clueMap = BitmapFactory.decodeResource(res, R.drawable.new_pic);
+            canvas.drawBitmap(clueMap, xpos, ypos, p);
+
+            //canvas.drawPath(drawPath, drawPaint);
+
+
+
+        }
+        else {
+
+        */
+            canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
+            canvas.drawPath(drawPath, drawPaint);
+        //}
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //detect user touch
-        float touchX = event.getX();
-        float touchY = event.getY();
+        Float touchX= event.getX();
+        Float touchY = event.getY();
 
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                drawPath.moveTo(touchX, touchY);
-                break;
-            case MotionEvent.ACTION_MOVE:
-                drawPath.lineTo(touchX, touchY);
-                break;
-            case MotionEvent.ACTION_UP:
-                drawCanvas.drawPath(drawPath, drawPaint);
-                drawPath.reset();
-                break;
-            default:
-                return false;
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    drawPath.moveTo(touchX, touchY);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    drawPath.lineTo(touchX, touchY);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    drawCanvas.drawPath(drawPath, drawPaint);
+                    drawPath.reset();
+                    break;
+                default:
+                    return false;
 
-        }
+            }
 
         invalidate();
         return true;
@@ -91,8 +130,8 @@ public class DrawingView extends View
     public void setColor(String newColor){
         //set color
         invalidate();
-        //paintColor = Color.parseColor(newColor);
-        drawPaint.setColor(0xFF660000);
+        paintColor = Color.parseColor(newColor);
+        drawPaint.setColor(paintColor);
 
 
     }

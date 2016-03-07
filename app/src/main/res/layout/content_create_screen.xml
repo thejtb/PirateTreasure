@@ -45,12 +45,22 @@
             android:orientation="horizontal" >
 
 
-            <Button
-                style="?android:attr/buttonStyleSmall"
+            <ImageButton
+                android:id="@+id/new_btn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add Clue"
-                android:id="@+id/buttonClue" />
+                android:layout_height="fill_parent"
+                android:contentDescription="@string/add_clue"
+                android:src="@drawable/new_pic"
+                android:tag="#FF660000"/>
+            <ImageButton
+                android:id="@+id/freeDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:contentDescription="@string/add_clue"
+                android:src="@drawable/brush"
+                android:tag="#FFFF0000"/>
+
+
         </LinearLayout>
 
 

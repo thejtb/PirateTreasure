@@ -25,22 +25,32 @@ public class CreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_screen);
 
         drawView = (DrawingView)findViewById(R.id.drawing);
+        LinearLayout paintLayout = (LinearLayout)findViewById(R.id.paint_colors);
+
+
         //LinearLayout paintLayout = (LinearLayout)findViewById(R.id.paint_colors);
 
     }
 
     public void addClue(View view) {
         Intent intent = new Intent(this, PlayActivity.class);
+        //white out this input if clueFlag = 0
+
+
+
         EditText clueAddition = (EditText) findViewById(R.id.editText);
         
 
     }
     public void paintClicked(View view){
 
-        ImageButton imgView = (ImageButton)view;
-        String color = view.getTag().toString();
-        drawView.setColor(color);
+        if(view != currPaint) {
+            ImageButton imgView = (ImageButton) view;
+            String color = view.getTag().toString();
 
+
+            drawView.setColor(color);
+        }
 
     }
 
