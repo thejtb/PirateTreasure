@@ -26,11 +26,11 @@ public class DrawingView extends View
     //drawing and canvas paint
     private Paint drawPaint, canvasPaint;
     //initial color
-    private int paintColor = 0xFFAA66CC;
+    private int paintColor = 0xFF660000;
     //canvas
-    private Canvas drawCanvas;
+    public Canvas drawCanvas;
     //canvas bitmap
-    private Bitmap canvasBitmap;
+    public Bitmap canvasBitmap;
 
     Bitmap clueMap;
 
