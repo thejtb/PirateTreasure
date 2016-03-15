@@ -34,10 +34,20 @@ public class CreateActivity extends AppCompatActivity {
     ListView show;
     Button aBut;
 
-    int clueNum = 0;
+    static boolean visitedSettings = false;
+    static boolean checkedFloor, checkedYard;
+    static int clueNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MainActivity.visitedCreate = true;
+        // Resort to default values if setting screen not visited
+        if(!visitedSettings) {
+            clueNum = 5;
+            checkedFloor = false;
+            checkedYard = false;
+        }
+        MainActivity.visitedCreate = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_screen);
 

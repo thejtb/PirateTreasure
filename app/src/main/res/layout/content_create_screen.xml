@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:contentDescription="@string/add_clue"
-                android:src="@drawable/new_pic"
+
                 android:onClick="paintClicked"
                 android:tag="#FF660000"/>
             <ImageButton
@@ -59,7 +59,7 @@
                 android:layout_height="fill_parent"
                 android:contentDescription="@string/add_clue"
                 android:onClick="paintClicked"
-                android:src="@drawable/brush"
+
                 android:tag="#FFFF0000"/>
 
 

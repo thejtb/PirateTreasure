@@ -9,23 +9,25 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+static boolean visitedCreate = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
         Button playButton = (Button) findViewById(R.id.button);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent go_play = new Intent(MainActivity.this, PlayActivity.class);
-                startActivity(go_play);
+        // Do not allow movement to play screen until visited create screen
 
-            }
+            playButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(visitedCreate) {
+                        Intent go_play = new Intent(MainActivity.this, PlayActivity.class);
+                        startActivity(go_play);
+                    }
+                }
 
-        });
-
+            });
         Button createButton = (Button) findViewById(R.id.button2);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
