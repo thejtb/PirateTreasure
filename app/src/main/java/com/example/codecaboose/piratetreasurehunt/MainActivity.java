@@ -24,7 +24,7 @@ static boolean visitedCreate = false;
                     if(visitedCreate) {
                         Intent go_play = new Intent(MainActivity.this, PlayActivity.class);
                         startActivity(go_play);
-                    }
+                   }
                 }
 
             });

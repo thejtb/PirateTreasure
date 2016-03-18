@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,10 +30,12 @@ public class CreateActivity extends AppCompatActivity {
 
     private DrawingView drawView;
     private ImageButton currPaint;
-    public ArrayList<String> addArray = new ArrayList<String>();
+    static ArrayList<String> addArray = new ArrayList<String>();
     EditText clueAddition;
     ListView show;
     Button aBut;
+    public int listCounter = 0;
+    static int mapO = 0;
 
     static boolean visitedSettings = false;
     static boolean checkedFloor, checkedYard;
@@ -57,6 +60,9 @@ public class CreateActivity extends AppCompatActivity {
 
         aBut = (Button)findViewById(R.id.addButton);
 
+
+
+
         aBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +70,7 @@ public class CreateActivity extends AppCompatActivity {
                 String getText = clueAddition.getText().toString();
 
                 addArray.add(getText);
-
+                System.out.printf("%s",addArray);
 
                 /*
                 drawView.setDrawingCacheEnabled(true);
@@ -82,7 +88,7 @@ public class CreateActivity extends AppCompatActivity {
                 drawView.destroyDrawingCache();
                 */
 
-                String test = "test1.png";
+                String test = "test"+ listCounter +".png";
                 File sd = Environment.getExternalStorageDirectory();
                 File dest = new File(sd, test );
                 String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
@@ -93,7 +99,7 @@ public class CreateActivity extends AppCompatActivity {
                 try {
                     fos = openFileOutput(test, Context.MODE_PRIVATE);
                     drawView.canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-
+                    listCounter++;
 
                     fos.flush();
                     fos.close();
@@ -126,8 +132,29 @@ public class CreateActivity extends AppCompatActivity {
         if(view != currPaint) {
             ImageButton imgView = (ImageButton) view;
             String color = view.getTag().toString();
+            Log.d("hello", color);
+            if(color.equals("#FFFF0000") && mapO != 5) {
+                Log.d("yup", "here>?");
+                String test = "org.png";
+                File sd = Environment.getExternalStorageDirectory();
+                File dest = new File(sd, test );
+                FileOutputStream fos;
+                try {
+                    fos = openFileOutput(test, Context.MODE_PRIVATE);
+                    drawView.canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
 
 
+                    fos.flush();
+                    fos.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
+                mapO = 5;
+
+            }
             drawView.setColor(color);
         }
 

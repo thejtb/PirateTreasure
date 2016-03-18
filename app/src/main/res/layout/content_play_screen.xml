@@ -23,12 +23,15 @@
         android:scrollbars="vertical"
         android:maxLines="5"/>
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Decoder area"
         android:textAlignment="center"
+        android:inputType="text"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
