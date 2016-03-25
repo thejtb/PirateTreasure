@@ -48,10 +48,18 @@ public class PlayActivity extends AppCompatActivity {
                     //submit_btn.performClick();
 
                     String  str1 = edit_txt.getText().toString().replaceAll("\\s+","");
+                    str1 = str1.replaceAll("%","");
                     String str2 = CreateActivity.addArray.get(counter).replaceAll("\\s+","");
-                            Log.d("tag2222", str1);
-                    Log.d("tag22223", str2);
+                      // String str2 = CreateActivity.addArray.get(counter);
 
+
+
+
+
+                    str2 = CreateActivity.cipher(str2);
+
+                              Log.d("tag2222", str1);
+                      Log.d("tag22223", str2);
 
 
                     if(str1.equals(str2)) {

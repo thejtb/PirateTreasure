@@ -1,5 +1,8 @@
 package com.example.codecaboose.piratetreasurehunt;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -34,6 +37,10 @@ public class CreateActivity extends AppCompatActivity {
     EditText clueAddition;
     ListView show;
     Button aBut;
+    int clueCount = 0;
+    boolean textboxFlag = false;
+
+
     public int listCounter = 0;
     static int mapO = 0;
 
@@ -59,18 +66,35 @@ public class CreateActivity extends AppCompatActivity {
         clueAddition = (EditText) findViewById(R.id.editText);
 
         aBut = (Button)findViewById(R.id.addButton);
-
+        clueAddition.setFocusable(false);
 
 
 
         aBut.setOnClickListener(new View.OnClickListener() {
+
+
+
             @Override
             public void onClick(View v) {
 
                 String getText = clueAddition.getText().toString();
 
+                //Check for clues not greater than clueNum
+                if(clueCount > clueNum)
+                    maxClue();
+
+
                 addArray.add(getText);
-                System.out.printf("%s",addArray);
+                System.out.printf("%s", addArray);
+                clueCount++;
+
+
+
+                    showSimplePopUp(getText);
+
+
+
+
 
                 /*
                 drawView.setDrawingCacheEnabled(true);
@@ -110,7 +134,7 @@ public class CreateActivity extends AppCompatActivity {
 
 
 
-
+                clueAddition.setFocusable(false);
             }
         });
 
@@ -127,8 +151,68 @@ public class CreateActivity extends AppCompatActivity {
         
 
     }
-    public void paintClicked(View view){
 
+    private void maxClue() {
+
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("You went over the Clue Limit");
+
+        //message = cipher(message);
+        helpBuilder.setMessage("Back to the main menu with you");
+        helpBuilder.setPositiveButton("Aye aye",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent go_create = new Intent(CreateActivity.this, MainActivity.class);
+                        startActivity(go_create);
+
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
+    }
+
+
+
+    private void showSimplePopUp(String message) {
+
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Ciphered Message");
+
+        message = cipher(message);
+        helpBuilder.setMessage(message);
+        helpBuilder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
+    }
+
+    public static String cipher(String msg){
+        String s = "";
+        int shift = 5;
+        int len = msg.length();
+        for(int x = 0; x < len; x++){
+            char c = (char)(msg.charAt(x) + shift);
+            if (c > 'z')
+                s += (char)(msg.charAt(x) - (26-shift));
+            else
+                s += (char)(msg.charAt(x) + shift);
+        }
+        return s;
+    }
+
+
+    public void paintClicked(View view){
+       clueAddition.setFocusableInTouchMode(true);
         if(view != currPaint) {
             ImageButton imgView = (ImageButton) view;
             String color = view.getTag().toString();
