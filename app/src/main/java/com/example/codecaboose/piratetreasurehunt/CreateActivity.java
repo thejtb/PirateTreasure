@@ -37,7 +37,7 @@ public class CreateActivity extends AppCompatActivity {
     EditText clueAddition;
     ListView show;
     Button aBut;
-    int clueCount = 0;
+    static int clueCount = 0;
     boolean textboxFlag = false;
 
 
@@ -68,8 +68,6 @@ public class CreateActivity extends AppCompatActivity {
         aBut = (Button)findViewById(R.id.addButton);
         clueAddition.setFocusable(false);
 
-
-
         aBut.setOnClickListener(new View.OnClickListener() {
 
 
@@ -80,7 +78,7 @@ public class CreateActivity extends AppCompatActivity {
                 String getText = clueAddition.getText().toString();
 
                 //Check for clues not greater than clueNum
-                if(clueCount > clueNum)
+                if(clueCount > clueNum - 2)
                     maxClue();
 
 

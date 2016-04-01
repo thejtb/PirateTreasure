@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 static boolean visitedCreate = false;
@@ -15,7 +16,7 @@ static boolean visitedCreate = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        Button playButton = (Button) findViewById(R.id.button);
+        ImageButton playButton = (ImageButton) findViewById(R.id.button);
         // Do not allow movement to play screen until visited create screen
 
             playButton.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +29,7 @@ static boolean visitedCreate = false;
                 }
 
             });
-        Button createButton = (Button) findViewById(R.id.button2);
+        ImageButton createButton = (ImageButton) findViewById(R.id.button2);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +40,7 @@ static boolean visitedCreate = false;
 
         });
 
-        Button settingsButton = (Button) findViewById(R.id.button3);
+        ImageButton settingsButton = (ImageButton) findViewById(R.id.button3);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,9 +53,6 @@ static boolean visitedCreate = false;
 
 
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -19,16 +19,21 @@
         android:layout_height="175dp"
         android:text="Play screen contents"
         android:textAlignment="center"
+        android:textStyle="italic|bold"
+        android:textSize="10dp"
+        android:fontFamily="serif"
         android:id="@+id/scrollList"
         android:layout_alignParentBottom="true"
         android:scrollbars="vertical"
-        android:maxLines="5"/>
+        android:maxLines="6"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Decoder area"
+        android:fontFamily="serif"
+        android:textStyle="italic|bold"
         android:textAlignment="center"
         android:inputType="text"
         android:singleLine="true"
