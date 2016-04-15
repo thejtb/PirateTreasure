@@ -36,6 +36,7 @@ public class PlayActivity extends AppCompatActivity {
         sList = (TextView)findViewById(R.id.scrollList);
         /*TextView textList = (TextView) findViewById(R.id.scrollList);
         textList.setMovementMethod(new ScrollingMovementMethod());*/
+        sList.setMovementMethod(new ScrollingMovementMethod());
         sList.setText("");
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
@@ -89,6 +90,11 @@ public class PlayActivity extends AppCompatActivity {
 
                         counter++;
 
+                        String temp9 = "" + CreateActivity.clueCount;
+                        String temp10 = "" + counter;
+
+                        Log.d("clueCount ", temp9);
+                        Log.d("counter ", temp10);
 
                         if(counter == CreateActivity.clueCount) {
                             edit_txt.setFocusable(false);
@@ -123,7 +129,7 @@ public class PlayActivity extends AppCompatActivity {
     private void showSimplePopUp() {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("YE GOT THE TREASURE");
+        helpBuilder.setTitle("YE GOT THE TREASURE!");
         ImageView image = new ImageView(this);
         image.setImageResource(R.drawable.victorybackground);
 

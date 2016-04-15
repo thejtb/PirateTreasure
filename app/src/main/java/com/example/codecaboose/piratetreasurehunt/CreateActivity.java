@@ -153,7 +153,7 @@ public class CreateActivity extends AppCompatActivity {
     private void maxClue() {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("You went over the Clue Limit");
+        helpBuilder.setTitle("You reached the Clue Limit");
 
         //message = cipher(message);
         helpBuilder.setMessage("Back to the main menu with you");
