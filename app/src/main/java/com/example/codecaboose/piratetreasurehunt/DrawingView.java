@@ -16,9 +16,6 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 
 
-/**
- * Created by msharrison on 2/21/16.
- */
 public class DrawingView extends View
 {
     //drawing path
@@ -54,9 +51,7 @@ public class DrawingView extends View
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
-
         canvasPaint = new Paint(Paint.DITHER_FLAG);
-
     }
 
     @Override
@@ -67,40 +62,21 @@ public class DrawingView extends View
         drawCanvas = new Canvas(canvasBitmap);
 
     }
-
+    //Deprecated
     public void setPicture (Bitmap bitmap) {
         setBackgroundDrawable(new BitmapDrawable(bitmap));
     }
 
-
-
     @Override
     protected void onDraw(Canvas canvas) {
         //draw view
-        /*if(clueFlag == 1) {
-            super.onDraw(canvas);
-            Resources res = getResources();
-            Paint p = new Paint();
-            p.setColor(Color.RED);
-
-            clueMap = BitmapFactory.decodeResource(res, R.drawable.new_pic);
-
-            clueMap = BitmapFactory.decodeResource(res, R.drawable.new_pic);
-            canvas.drawBitmap(clueMap, xpos, ypos, p);
-
-            //canvas.drawPath(drawPath, drawPaint);
-
-
-
-        }
-        else {
-
-        */
-            canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
-            canvas.drawPath(drawPath, drawPaint);
-        //}
+        canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
+        canvas.drawPath(drawPath, drawPaint);
     }
 
+
+
+    //Detects user finger presses
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //detect user touch
@@ -120,9 +96,7 @@ public class DrawingView extends View
                     break;
                 default:
                     return false;
-
             }
-
         invalidate();
         return true;
     }
@@ -132,11 +106,5 @@ public class DrawingView extends View
         invalidate();
         paintColor = Color.parseColor(newColor);
         drawPaint.setColor(paintColor);
-
-
     }
-
-
-
-
 }

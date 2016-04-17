@@ -15,10 +15,8 @@ static boolean visitedCreate = false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-
         ImageButton playButton = (ImageButton) findViewById(R.id.button);
         // Do not allow movement to play screen until visited create screen
-
             playButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -29,29 +27,26 @@ static boolean visitedCreate = false;
                 }
 
             });
+        //Move user to Create Screen
         ImageButton createButton = (ImageButton) findViewById(R.id.button2);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent go_create = new Intent(MainActivity.this, CreateActivity.class);
                 startActivity(go_create);
-
             }
 
         });
-
+        //Move user to Settings Screen
         ImageButton settingsButton = (ImageButton) findViewById(R.id.button3);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent go_set = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(go_set);
-
             }
 
         });
-
-
     }
 
     @Override
@@ -67,12 +62,10 @@ static boolean visitedCreate = false;
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

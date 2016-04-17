@@ -40,7 +40,6 @@ public class CreateActivity extends AppCompatActivity {
     static int clueCount = 0;
     boolean textboxFlag = false;
 
-
     public int listCounter = 0;
     static int mapO = 0;
 
@@ -60,11 +59,8 @@ public class CreateActivity extends AppCompatActivity {
         MainActivity.visitedCreate = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_screen);
-
         drawView = (DrawingView)findViewById(R.id.drawing);
-
         clueAddition = (EditText) findViewById(R.id.editText);
-
         aBut = (Button)findViewById(R.id.addButton);
         clueAddition.setFocusable(false);
 
@@ -74,88 +70,44 @@ public class CreateActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
                 String getText = clueAddition.getText().toString();
-
                 //Check for clues not greater than clueNum
                 if(clueCount > clueNum - 2)
                     maxClue();
-
-
                 addArray.add(getText);
                 System.out.printf("%s", addArray);
                 clueCount++;
-
-
-
                     showSimplePopUp(getText);
-
-
-
-
-
-                /*
-                drawView.setDrawingCacheEnabled(true);
-                String imgSaved = MediaStore.Images.Media.insertImage(
-                        getContentResolver(), drawView.getDrawingCache(),
-                        UUID.randomUUID().toString()+".png", "drawing");
-
-
-                if(imgSaved!=null){
-                    Toast savedToast = Toast.makeText(getApplicationContext(),
-                            "Drawing saved to Gallery!", Toast.LENGTH_SHORT);
-                    savedToast.show();
-                }
-
-                drawView.destroyDrawingCache();
-                */
 
                 String test = "test"+ listCounter +".png";
                 File sd = Environment.getExternalStorageDirectory();
                 File dest = new File(sd, test );
                 String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-                //File file = new File(extStorageDirectory, "er.PNG");
-
                 FileOutputStream fos;
-
                 try {
                     fos = openFileOutput(test, Context.MODE_PRIVATE);
                     drawView.canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
                     listCounter++;
-
                     fos.flush();
                     fos.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
-
-
                 clueAddition.setFocusable(false);
             }
         });
-
-
-
-
     }
 
     public void addClue(View view) {
         Intent intent = new Intent(this, PlayActivity.class);
         //white out this input if clueFlag = 0
-
         EditText clueAddition = (EditText) findViewById(R.id.editText);
-        
-
     }
 
     private void maxClue() {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("You reached the Clue Limit");
-
-        //message = cipher(message);
         helpBuilder.setMessage("Back to the main menu with you");
         helpBuilder.setPositiveButton("Aye aye",
                 new DialogInterface.OnClickListener() {
@@ -163,22 +115,18 @@ public class CreateActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent go_create = new Intent(CreateActivity.this, MainActivity.class);
                         startActivity(go_create);
-
                     }
                 });
-
         // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
     }
 
-
-
+    //Displays the ciphered message to the creator
     private void showSimplePopUp(String message) {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         helpBuilder.setTitle("Ciphered Message");
-
         message = cipher(message);
         helpBuilder.setMessage(message);
         helpBuilder.setPositiveButton("Ok",
@@ -209,14 +157,13 @@ public class CreateActivity extends AppCompatActivity {
     }
 
 
+    //
     public void paintClicked(View view){
        clueAddition.setFocusableInTouchMode(true);
         if(view != currPaint) {
             ImageButton imgView = (ImageButton) view;
             String color = view.getTag().toString();
-            Log.d("hello", color);
             if(color.equals("#FFFF0000") && mapO != 5) {
-                Log.d("yup", "here>?");
                 String test = "org.png";
                 File sd = Environment.getExternalStorageDirectory();
                 File dest = new File(sd, test );
@@ -224,27 +171,14 @@ public class CreateActivity extends AppCompatActivity {
                 try {
                     fos = openFileOutput(test, Context.MODE_PRIVATE);
                     drawView.canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-
-
                     fos.flush();
                     fos.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
-
                 mapO = 5;
-
             }
             drawView.setColor(color);
         }
-
     }
-
-
-
-
 }
-
-

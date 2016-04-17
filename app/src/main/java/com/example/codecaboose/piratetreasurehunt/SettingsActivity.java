@@ -16,7 +16,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);}
 
-
     public void onRadioButtonClicked(View view) {
         // Second floor selection
         Switch toggle1 = (Switch) findViewById(R.id.switch1);
